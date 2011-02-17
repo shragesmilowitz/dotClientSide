@@ -1,9 +1,9 @@
 ﻿var widget = {
     Hide: null,
     Clicked: false,
+    _ViewPromiss: null,
     _init: function () {
         var that = this;
-        var viewPromiss;
         var show = false;
         $(document.body).append(that.options.$Container);
 
@@ -14,20 +14,15 @@
                 // Insert Loading... text
                 widget.options.$Container.html(widget.options.LoadingText);
                 var id = widget.element.get(0).id;
-                viewPromiss = widget.options.Load(id);
-                viewPromiss.done(internalInit);
-                viewPromiss.fail(function (jXhr, status) {
+                widget._ViewPromiss = widget.options.Load(id);
+                widget._ViewPromiss.done(internalInit);
+                widget._ViewPromiss.fail(function (jXhr, status) {
                     debug.log("Error: " + status);
                 });
                 show = true;
             }
         });
         $(that.element).bind('mouseleave', { widget: that }, function (e) {
-            if (viewPromiss && viewPromiss.readyState > 0 && viewPromiss.readyState < 4) { // Loading
-                viewPromiss.abort();
-                debug.log("Aborted");
-            }
-            show = false;
             widget = e.data.widget;
             widget.Hide = window.setTimeout(CallHideContainer, 100);
         });
@@ -40,7 +35,7 @@
         that.options.$Container.bind('mouseleave', { widget: that }, function (e) {
             widget = e.data.widget;
             if (!widget.Clicked) {
-                that.HideContainer();
+                CallHideContainer();
             }
         });
         that.options.$Container.bind('click', { widget: that }, function (e) {
@@ -66,6 +61,11 @@
         }
     },
     HideContainer: function () {
+        if (this._ViewPromiss && this._ViewPromiss.readyState > 0 && this._ViewPromiss.readyState < 4) { // Loading
+            this._ViewPromiss.abort();
+            debug.log("Aborted");
+        }
+        show = false;
         this.options.$Container.empty();
         this.options.$Content = null;
         this.options.$Container.removeClass(this.options.cardSelectedCss);
