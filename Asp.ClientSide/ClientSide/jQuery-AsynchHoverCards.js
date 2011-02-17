@@ -12,7 +12,7 @@
             widget.ShowContainer();
             if (widget.options.$Content == null) {
                 // Insert Loading... text
-                widget.options.$Container.html(widet.options.LoadingText);
+                widget.options.$Container.html(widget.options.LoadingText);
                 var id = widget.element.get(0).id;
                 viewPromiss = widget.options.Load(id);
                 viewPromiss.done(internalInit);
