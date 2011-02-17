@@ -3,12 +3,13 @@
     Clicked: false,
     _ViewPromiss: null,
     _init: function () {
+
         var that = this;
-        var show = false;
         $(document.body).append(that.options.$Container);
 
         $(that.element).bind('mouseenter', { widget: that }, function (e) {
             widget = e.data.widget;
+            widget._ClearTimeout();
             widget.ShowContainer();
             if (widget.options.$Content == null) {
                 // Insert Loading... text
@@ -19,7 +20,6 @@
                 widget._ViewPromiss.fail(function (jXhr, status) {
                     debug.log("Error: " + status);
                 });
-                show = true;
             }
         });
         $(that.element).bind('mouseleave', { widget: that }, function (e) {
@@ -29,7 +29,7 @@
 
         that.options.$Container.bind('mouseenter', { widget: that }, function (e) {
             widget = e.data.widget;
-            window.clearTimeout(widget.Hide);
+            widget._ClearTimeout();
         });
 
         that.options.$Container.bind('mouseleave', { widget: that }, function (e) {
@@ -60,18 +60,25 @@
             that.options.$Container.html($(data.html));
         }
     },
+    _ClearTimeout: function () {
+        if (this.Hide) {
+            window.clearTimeout(this.Hide);
+            debug.log("Clearing Timeout");
+            this.Hide = null;
+        }
+    },
     HideContainer: function () {
         if (this._ViewPromiss && this._ViewPromiss.readyState > 0 && this._ViewPromiss.readyState < 4) { // Loading
             this._ViewPromiss.abort();
             debug.log("Aborted");
         }
-        show = false;
         this.options.$Container.empty();
         this.options.$Content = null;
         this.options.$Container.removeClass(this.options.cardSelectedCss);
         this.options.$Container.css('visibility', 'hidden')
     },
     ShowContainer: function () {
+        debug.log("Showing Container");
         this.options.$Container.css('visibility', 'visible');
         this.options.$Container.position(widget.GetContainerPosition());
 
