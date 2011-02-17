@@ -1,18 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.ClientSide", "Asp.ClientSide\Asp.ClientSide.csproj", "{901A8889-37EB-4AD1-A638-4C4F0D1E4590}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientSide.Web", "Asp.ClientSide\ClientSide.Web.csproj", "{901A8889-37EB-4AD1-A638-4C4F0D1E4590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientSite", "ClientSite.DataLayer\ClientSite.csproj", "{801AD25E-9983-4AA0-A5F7-FFC086012D73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Nuget|Any CPU = Nuget|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{901A8889-37EB-4AD1-A638-4C4F0D1E4590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{901A8889-37EB-4AD1-A638-4C4F0D1E4590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{901A8889-37EB-4AD1-A638-4C4F0D1E4590}.Nuget|Any CPU.ActiveCfg = Nuget|Any CPU
+		{901A8889-37EB-4AD1-A638-4C4F0D1E4590}.Nuget|Any CPU.Build.0 = Nuget|Any CPU
 		{901A8889-37EB-4AD1-A638-4C4F0D1E4590}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{901A8889-37EB-4AD1-A638-4C4F0D1E4590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801AD25E-9983-4AA0-A5F7-FFC086012D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801AD25E-9983-4AA0-A5F7-FFC086012D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801AD25E-9983-4AA0-A5F7-FFC086012D73}.Nuget|Any CPU.ActiveCfg = Release|Any CPU
+		{801AD25E-9983-4AA0-A5F7-FFC086012D73}.Nuget|Any CPU.Build.0 = Release|Any CPU
+		{801AD25E-9983-4AA0-A5F7-FFC086012D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801AD25E-9983-4AA0-A5F7-FFC086012D73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Asp.ClientSide.Controllers
+namespace ClientSide.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ClientSide.Controllers.ClientSideControllerBase
     {
         public ActionResult Index()
         {
@@ -18,6 +18,11 @@ namespace Asp.ClientSide.Controllers
         public ActionResult About()
         {
             return View();
+        }
+
+        public ActionResult DialogTest()
+        {
+            return ClientSideView();
         }
     }
 }

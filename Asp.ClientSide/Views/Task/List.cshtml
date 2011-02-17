@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ClientSide.Web.DataLayer.Task>
+
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Status
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>            
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            <a href="javascript:void(0)" id="delete_@(item.Id)">Delete</a>
+        </td>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            @item.Status
+        </td>
+    </tr>
+}
+
+</table>
+

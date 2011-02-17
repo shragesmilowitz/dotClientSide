@@ -1,0 +1,5 @@
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\ClientSite.DataLayer\obj\Debug\ResolveAssemblyReference.cache
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\ClientSite.DataLayer\bin\Debug\ClientSite.dll
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\ClientSite.DataLayer\bin\Debug\ClientSite.pdb
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\ClientSite.DataLayer\obj\Debug\ClientSite.dll
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\ClientSite.DataLayer\obj\Debug\ClientSite.pdb

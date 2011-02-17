@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ClientSide.Web.DataLayer.Task>
+
+<p>
+    <a id="lnkAddTask" href="javascript:void(0)">Add Task</a>
+</p>
+<div id="container">
+
+</div>
+
+<script src="../../ClientSide/Views/TaskAdd.js" type="text/javascript"></script>
+<script src="../../ClientSide/Views/TaskList.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    /// <reference path="../../ClientSide/App.js" />
+    /// <reference path="/Scripts/jquery-1.4.4-vsdoc.js" />
+    
+    $(document).ready(ready);
+
+    function ready() {
+        var taskList = new ClientSide.Views.TaskList($('#container'));
+
+        // Handle task delete events
+        $(document).bind('TaskList.Deleted', function () {
+            taskList.Refresh();
+        });
+        taskList.Show();
+
+        $('#lnkAddTask').click(function () {
+            var view = new ClientSide.Views.TaskAdd('/Task/Create');
+            view.SubmissionSuccess = function (data) {
+                if (data.Success) {
+                    taskList.Refresh();
+                    ClientSide.DisplayMessage("Task Added");
+                    view.Destroy();
+                }
+                else {
+                    ClientSide.DisplayError(data.Error);
+                }
+            }
+            view.Show();
+        });
+    }
+</script>

@@ -1,0 +1,15 @@
+﻿@model ClientSide.Web.DataLayer.Task
+
+<fieldset>
+    <legend>Task</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">@Model.Title</div>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">@Model.Status</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+</p>
+

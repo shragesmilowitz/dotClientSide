@@ -1,0 +1,10 @@
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\bin\ClientSide\App.js
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\bin\ClientSide\jquery.unobtrusive-ajax-clientside.js
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\bin\ClientSide\jquery.validate.unobtrusive-patch.js
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\bin\ClientSide.Web.dll
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\bin\ClientSide.Web.pdb
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\bin\ClientSite.dll
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\bin\ClientSite.pdb
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\obj\Debug\ResolveAssemblyReference.cache
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\obj\Debug\ClientSide.Web.dll
+C:\inetpub\wwwroot\Projects\Asp.ClientSide\Asp.ClientSide\obj\Debug\ClientSide.Web.pdb

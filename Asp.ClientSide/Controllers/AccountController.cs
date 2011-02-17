@@ -7,9 +7,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using Asp.ClientSide.Models;
+using ClientSide.Web.Models;
 
-namespace Asp.ClientSide.Controllers
+namespace ClientSide.Web.Controllers
 {
     public class AccountController : Controller
     {
@@ -23,6 +23,12 @@ namespace Asp.ClientSide.Controllers
             if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
 
             base.Initialize(requestContext);
+        }
+
+        // URL: /Account/IsAuthenticated
+        public ActionResult IsAuthenticated()
+        {
+            return Json(this.User.Identity.IsAuthenticated);
         }
 
         // **************************************
