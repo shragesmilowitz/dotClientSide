@@ -5,10 +5,13 @@
     _init: function () {
 
         var that = this;
+        that.options.$Container = that.options.$Container.clone();
         $(document.body).append(that.options.$Container);
+        debug.log($('.dialogbox').length);
 
         $(that.element).bind('mouseenter', { widget: that }, function (e) {
             widget = e.data.widget;
+            debug.log("Link Mouse Enter");
             widget._ClearTimeout();
             widget.ShowContainer();
             if (widget.options.$Content == null) {
@@ -24,16 +27,19 @@
         });
         $(that.element).bind('mouseleave', { widget: that }, function (e) {
             widget = e.data.widget;
+            debug.log("Link MouseLeave");
             widget.Hide = window.setTimeout(CallHideContainer, 100);
         });
 
         that.options.$Container.bind('mouseenter', { widget: that }, function (e) {
             widget = e.data.widget;
+            debug.log("Container Mouse Enter");
             widget._ClearTimeout();
         });
 
         that.options.$Container.bind('mouseleave', { widget: that }, function (e) {
             widget = e.data.widget;
+            debug.log("Container MouseLeave");
             if (!widget.Clicked) {
                 CallHideContainer();
             }
@@ -43,7 +49,7 @@
             window.clearTimeout(widget.Hide);
             widget.Clicked = true
             $(this).addClass(widget.options.cardSelectedCss);
-            e.stopPropagation();
+            //e.stopPropagation();
         });
         that.options.$Container.bind('clickoutside', { widget: this }, function (e) {
             widget = e.data.widget;
@@ -55,7 +61,6 @@
             that.HideContainer();
         }
         function internalInit(data) {
-            debug.log("Inserting " + data.html + " into container");
             that.options.$Content = $(data.html);
             that.options.$Container.html($(data.html));
         }
@@ -63,14 +68,12 @@
     _ClearTimeout: function () {
         if (this.Hide) {
             window.clearTimeout(this.Hide);
-            debug.log("Clearing Timeout");
             this.Hide = null;
         }
     },
     HideContainer: function () {
         if (this._ViewPromiss && this._ViewPromiss.readyState > 0 && this._ViewPromiss.readyState < 4) { // Loading
             this._ViewPromiss.abort();
-            debug.log("Aborted");
         }
         this.options.$Container.empty();
         this.options.$Content = null;
@@ -78,7 +81,6 @@
         this.options.$Container.css('visibility', 'hidden')
     },
     ShowContainer: function () {
-        debug.log("Showing Container");
         this.options.$Container.css('visibility', 'visible');
         this.options.$Container.position(widget.GetContainerPosition());
 
